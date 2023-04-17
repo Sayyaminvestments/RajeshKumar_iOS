@@ -18,7 +18,7 @@
 		66B8FDAB29E55B600091B59B /* VoiceRecordingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8FDAA29E55B600091B59B /* VoiceRecordingUITestsLaunchTests.swift */; };
 		66B8FDB829E5757B0091B59B /* SpeechRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8FDB729E5757B0091B59B /* SpeechRecordVC.swift */; };
 		66C4DAF029E7D8F500EE1A9E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C4DAEF29E7D8F500EE1A9E /* ContainerViewController.swift */; };
-		66C4DAF329E7DBA400EE1A9E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C4DAF229E7DBA400EE1A9E /* CustomTableViewCell.swift */; };
+		66C4DAF329E7DBA400EE1A9E /* SMCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C4DAF229E7DBA400EE1A9E /* SMCustomTableViewCell.swift */; };
 		66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDC829E57B24006C260A /* TabViewController.swift */; };
 		66DBEDCD29E58228006C260A /* WaitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDCC29E58228006C260A /* WaitingVC.swift */; };
 		66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDCE29E58245006C260A /* FinishedVC.swift */; };
@@ -26,6 +26,9 @@
 		66DBEDD329E58285006C260A /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD229E58285006C260A /* AccountVC.swift */; };
 		66DBEDD529E67C6C006C260A /* speechRecordFinishedAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD429E67C6C006C260A /* speechRecordFinishedAlertVC.swift */; };
 		66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */; };
+		66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */; };
+		66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4F2BD29ED43DF00B69357 /* Config.swift */; };
+		66F4F2C029ED51AA00B69357 /* LogInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4F2BF29ED51AA00B69357 /* LogInApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,7 @@
 		66B8FDAA29E55B600091B59B /* VoiceRecordingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66B8FDB729E5757B0091B59B /* SpeechRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecordVC.swift; sourceTree = "<group>"; };
 		66C4DAEF29E7D8F500EE1A9E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		66C4DAF229E7DBA400EE1A9E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		66C4DAF229E7DBA400EE1A9E /* SMCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCustomTableViewCell.swift; sourceTree = "<group>"; };
 		66DBEDC829E57B24006C260A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		66DBEDCC29E58228006C260A /* WaitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingVC.swift; sourceTree = "<group>"; };
 		66DBEDCE29E58245006C260A /* FinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedVC.swift; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		66DBEDD229E58285006C260A /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		66DBEDD429E67C6C006C260A /* speechRecordFinishedAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechRecordFinishedAlertVC.swift; sourceTree = "<group>"; };
 		66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedRecordDetailVC.swift; sourceTree = "<group>"; };
+		66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMLoginModel.swift; sourceTree = "<group>"; };
+		66F4F2BD29ED43DF00B69357 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		66F4F2BF29ED51AA00B69357 /* LogInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +125,13 @@
 		66B8FD8629E55B600091B59B /* VoiceRecording */ = {
 			isa = PBXGroup;
 			children = (
-				66B8FD8729E55B600091B59B /* AppDelegate.swift */,
-				66B8FD8929E55B600091B59B /* SceneDelegate.swift */,
+				66F4F2BA29ED437400B69357 /* Resources */,
+				66F4F2BC29ED43C300B69357 /* Congigure */,
+				66F4F2B929EBDE2700B69357 /* NetworkManager */,
+				66F4F2B529EBDCFD00B69357 /* Model */,
+				66F4F2B829EBDD2300B69357 /* View */,
 				66B8FDB929E575900091B59B /* Controllers */,
-				66B8FDBA29E575A20091B59B /* View */,
+				66B8FDBB29E575AA0091B59B /* StoryBoard */,
 				66B8FD9029E55B600091B59B /* Assets.xcassets */,
 				66B8FD9229E55B600091B59B /* LaunchScreen.storyboard */,
 				66B8FD9529E55B600091B59B /* Info.plist */,
@@ -150,7 +159,6 @@
 		66B8FDB929E575900091B59B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				66C4DAF129E7DB5C00EE1A9E /* CustomCell */,
 				66C4DAEE29E7D8CB00EE1A9E /* ContainerViewController */,
 				66DBEDCA29E57B2B006C260A /* CustomTabBarController */,
 				66B8FD8B29E55B600091B59B /* LogInVC.swift */,
@@ -159,14 +167,6 @@
 				66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		66B8FDBA29E575A20091B59B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				66B8FDBB29E575AA0091B59B /* StoryBoard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		66B8FDBB29E575AA0091B59B /* StoryBoard */ = {
@@ -183,14 +183,6 @@
 				66C4DAEF29E7D8F500EE1A9E /* ContainerViewController.swift */,
 			);
 			path = ContainerViewController;
-			sourceTree = "<group>";
-		};
-		66C4DAF129E7DB5C00EE1A9E /* CustomCell */ = {
-			isa = PBXGroup;
-			children = (
-				66C4DAF229E7DBA400EE1A9E /* CustomTableViewCell.swift */,
-			);
-			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		66DBEDCA29E57B2B006C260A /* CustomTabBarController */ = {
@@ -211,6 +203,56 @@
 				66DBEDD229E58285006C260A /* AccountVC.swift */,
 			);
 			path = TabControllers;
+			sourceTree = "<group>";
+		};
+		66F4F2B529EBDCFD00B69357 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66F4F2B829EBDD2300B69357 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66F4F2BB29ED439800B69357 /* CustomCell */,
+			);
+			name = View;
+			path = Controllers/View;
+			sourceTree = "<group>";
+		};
+		66F4F2B929EBDE2700B69357 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				66F4F2BF29ED51AA00B69357 /* LogInApi.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		66F4F2BA29ED437400B69357 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				66B8FD8729E55B600091B59B /* AppDelegate.swift */,
+				66B8FD8929E55B600091B59B /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		66F4F2BB29ED439800B69357 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				66C4DAF229E7DBA400EE1A9E /* SMCustomTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		66F4F2BC29ED43C300B69357 /* Congigure */ = {
+			isa = PBXGroup;
+			children = (
+				66F4F2BD29ED43DF00B69357 /* Config.swift */,
+			);
+			path = Congigure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,17 +388,20 @@
 			files = (
 				66B8FD8C29E55B600091B59B /* LogInVC.swift in Sources */,
 				66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */,
+				66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */,
 				66B8FD8829E55B600091B59B /* AppDelegate.swift in Sources */,
 				66B8FD8A29E55B600091B59B /* SceneDelegate.swift in Sources */,
 				66DBEDD529E67C6C006C260A /* speechRecordFinishedAlertVC.swift in Sources */,
+				66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */,
 				66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */,
 				66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */,
 				66DBEDCD29E58228006C260A /* WaitingVC.swift in Sources */,
 				66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */,
 				66B8FDB829E5757B0091B59B /* SpeechRecordVC.swift in Sources */,
+				66F4F2C029ED51AA00B69357 /* LogInApi.swift in Sources */,
 				66C4DAF029E7D8F500EE1A9E /* ContainerViewController.swift in Sources */,
 				66DBEDD329E58285006C260A /* AccountVC.swift in Sources */,
-				66C4DAF329E7DBA400EE1A9E /* CustomTableViewCell.swift in Sources */,
+				66C4DAF329E7DBA400EE1A9E /* SMCustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

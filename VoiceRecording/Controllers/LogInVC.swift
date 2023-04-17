@@ -9,19 +9,21 @@ import UIKit
 
 class LogInVC: UIViewController {
 
+    // @IBOutlet
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var phoneTextfield: UITextField!
     
+    // Variables
     var iconClick = false
     let imageicon = UIImageView()
+    
+    // View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //passwordTextfield.delegate = self
+
         imageicon.image = UIImage(named:"Closeeye.png")
         let contentview = UIView()
         contentview.addSubview(imageicon)
-        //Accounttextfield.clearButtonMode = .whileEditing
 
         contentview.frame = CGRect(x: 0, y: 0, width: UIImage(named: "Closeeye.png")!.size.width, height: UIImage(named: "Closeeye.png")!.size.height)
         imageicon.frame = CGRect(x: -30, y: 0, width: UIImage(named: "Closeeye.png")!.size.width, height: UIImage(named: "Closeeye.png")!.size.height)
@@ -63,9 +65,79 @@ class LogInVC: UIViewController {
     }
     
     @IBAction func logInpressed(_ sender: UIButton) {
-        let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
-        self.navigationController?.pushViewController(tabViewController, animated: true)
+        LogInApiCalling()
+
     }
     
+    // Log In API Calling
+    func LogInApiCalling() {
+        guard let phoneNumber = phoneTextfield.text,
+              let password = passwordTextfield.text else {
+              return
+          }
+        guard let url = URL(string: loigIn_API) else {
+            return
+        }
+          var request = URLRequest(url: url)
+          request.httpMethod = "POST"
+          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+          
+          let parameters: [String: Any] = [
+              "phone":  phoneNumber,
+              "password": password
+          ]
+      request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+          let session = URLSession.shared
+          let task = session.dataTask(with: request) { data, response, error in
+              guard let data = data,
+                    let response = response as? HTTPURLResponse,
+                    error == nil else {
+                  print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                  return
+              }
+              guard (200 ... 299) ~= response.statusCode else {
+                  print("Status code: \(response.statusCode)")
+                  return
+              }
+              
+              if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                  // Handle the response JSON
+                  let decoder = JSONDecoder()
+                  do {
+                      let jsonData = try decoder.decode(LogInResultJson.self, from: data)
+                      if let error_no = jsonData.error_no, let error_message = jsonData.error_message {
+                          if error_no == 0 && error_message == "success" {
+                              DispatchQueue.main.async {
+                                  let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
+                                  self.navigationController?.pushViewController(tabViewController, animated: true)
+                              }
+                              
+                          } else {
+                              DispatchQueue.main.async {
+                                  self.showSimpleAlert()
+                              }
+                              
+                          }
+                      }
+                      
+                  } catch {
+                      print(error.localizedDescription)
+                  }
+              }
+          }
+        task.resume()
+    }
+    
+    // Show Alert
+    func showSimpleAlert() {
+        let alert = UIAlertController(title: "", message: "Please enter the correct phone number or password.",         preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: UIAlertAction.Style.default,
+                                      handler: {(_: UIAlertAction!) in
+            //Sign out action
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
