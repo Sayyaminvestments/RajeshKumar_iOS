@@ -20,7 +20,7 @@ class LogInVC: UIViewController {
     // View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         imageicon.image = UIImage(named:"Closeeye.png")
         let contentview = UIView()
         contentview.addSubview(imageicon)
@@ -101,22 +101,27 @@ class LogInVC: UIViewController {
               }
               
               if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                  // Handle the response JSON
+                   //Handle the response JSON
                   let decoder = JSONDecoder()
                   do {
                       let jsonData = try decoder.decode(LogInResultJson.self, from: data)
-                      if let error_no = jsonData.error_no, let error_message = jsonData.error_message {
+                      if let error_no = jsonData.error_no, let error_message = jsonData.error_message, let token = jsonData.data?.token {
                           if error_no == 0 && error_message == "success" {
                               DispatchQueue.main.async {
                                   let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
                                   self.navigationController?.pushViewController(tabViewController, animated: true)
+                                 
                               }
+                             
+                              UserDefaults.SFSDefault(setValue: phoneNumber, forKey: "phoneNumber")
+                              UserDefaults.SFSDefault(setValue: password, forKey: "password")
+                              UserDefaults.SFSDefault(setValue: token, forKey: "token")
                               
                           } else {
                               DispatchQueue.main.async {
                                   self.showSimpleAlert()
                               }
-                              
+                              print("Please enter the correct phone number or password.")
                           }
                       }
                       
@@ -126,18 +131,16 @@ class LogInVC: UIViewController {
               }
           }
         task.resume()
+        
     }
     
     // Show Alert
     func showSimpleAlert() {
-        let alert = UIAlertController(title: "", message: "Please enter the correct phone number or password.",         preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK",
-                                      style: UIAlertAction.Style.default,
-                                      handler: {(_: UIAlertAction!) in
-            //Sign out action
-        }))
+        let alert = UIAlertController(title: "", message: "Please enter the correct phone number or password.",         preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+       
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
 

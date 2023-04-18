@@ -12,10 +12,10 @@ class RecordVC: UIViewController {
     @IBOutlet weak var finishedLineLabel: UILabel!
     @IBOutlet weak var waitingLineLabel: UILabel!
     
-    
+    var networkManager = SentanceListManger()
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        networkManager.sentanceListApi()
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         

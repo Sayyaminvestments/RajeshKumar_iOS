@@ -13,9 +13,12 @@ class AccountVC: UIViewController {
     @IBOutlet weak var adoptedLabel: UILabel!
     @IBOutlet weak var uploadedLabel: UILabel!
     
+    let objLogoutManager = LogoutManager()
+    let objUserAudioCountManager = UserAudioCountManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        objUserAudioCountManager.getAudioCountApiCall()
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +32,9 @@ class AccountVC: UIViewController {
     }
 
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
+        objLogoutManager.logoutApiCall()
         
     }
     
-
 }
+

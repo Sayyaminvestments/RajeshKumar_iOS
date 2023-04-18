@@ -32,24 +32,4 @@ let userAudioCount_API = API_BASE_URL_Test + "/api/getUserAudioCount"
 let sentanceList_API = API_BASE_URL_Test + "/api/getSentenceList"
 let addAudio_API = API_BASE_URL_Test + "/api/addAudio"
 
- func activityIndicator(style: UIActivityIndicatorView.Style = .medium,
-                                   frame: CGRect? = nil,
-                                   center: CGPoint? = nil) -> UIActivityIndicatorView {
-    
-    // 2
-    let activityIndicatorView = UIActivityIndicatorView(style: style)
-    
-    // 3
-    if let frame = frame {
-        activityIndicatorView.frame = frame
-    }
-    
-    // 4
-    if let center = center {
-        activityIndicatorView.center = center
-    }
-    
-    // 5
-    return activityIndicatorView
-}
-
+ 

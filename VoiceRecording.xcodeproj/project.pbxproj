@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		667A2FBE29EE4AC7006E9898 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A2FBD29EE4AC7006E9898 /* UserDefault.swift */; };
+		66ACD49829EE669800A25D8A /* SentanceListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49729EE669800A25D8A /* SentanceListApi.swift */; };
+		66ACD49A29EE7AAA00A25D8A /* SMLogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */; };
+		66ACD49C29EE91D100A25D8A /* SMSetanceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */; };
+		66ACD49E29EEB66B00A25D8A /* LogoutApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49D29EEB66B00A25D8A /* LogoutApi.swift */; };
+		66ACD4A029EEB83C00A25D8A /* UserAudioCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49F29EEB83C00A25D8A /* UserAudioCount.swift */; };
 		66B8FD8829E55B600091B59B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8FD8729E55B600091B59B /* AppDelegate.swift */; };
 		66B8FD8A29E55B600091B59B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8FD8929E55B600091B59B /* SceneDelegate.swift */; };
 		66B8FD8C29E55B600091B59B /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8FD8B29E55B600091B59B /* LogInVC.swift */; };
@@ -49,6 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		667A2FBD29EE4AC7006E9898 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		66ACD49729EE669800A25D8A /* SentanceListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentanceListApi.swift; sourceTree = "<group>"; };
+		66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMLogoutModel.swift; sourceTree = "<group>"; };
+		66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSetanceListModel.swift; sourceTree = "<group>"; };
+		66ACD49D29EEB66B00A25D8A /* LogoutApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutApi.swift; sourceTree = "<group>"; };
+		66ACD49F29EEB83C00A25D8A /* UserAudioCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAudioCount.swift; sourceTree = "<group>"; };
 		66B8FD8429E55B600091B59B /* VoiceRecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B8FD8729E55B600091B59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B8FD8929E55B600091B59B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */,
+				66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */,
+				66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -226,6 +240,9 @@
 			isa = PBXGroup;
 			children = (
 				66F4F2BF29ED51AA00B69357 /* LogInApi.swift */,
+				66ACD49D29EEB66B00A25D8A /* LogoutApi.swift */,
+				66ACD49729EE669800A25D8A /* SentanceListApi.swift */,
+				66ACD49F29EEB83C00A25D8A /* UserAudioCount.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -251,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				66F4F2BD29ED43DF00B69357 /* Config.swift */,
+				667A2FBD29EE4AC7006E9898 /* UserDefault.swift */,
 			);
 			path = Congigure;
 			sourceTree = "<group>";
@@ -390,6 +408,7 @@
 				66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */,
 				66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */,
 				66B8FD8829E55B600091B59B /* AppDelegate.swift in Sources */,
+				66ACD49E29EEB66B00A25D8A /* LogoutApi.swift in Sources */,
 				66B8FD8A29E55B600091B59B /* SceneDelegate.swift in Sources */,
 				66DBEDD529E67C6C006C260A /* speechRecordFinishedAlertVC.swift in Sources */,
 				66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */,
@@ -397,11 +416,16 @@
 				66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */,
 				66DBEDCD29E58228006C260A /* WaitingVC.swift in Sources */,
 				66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */,
+				66ACD49C29EE91D100A25D8A /* SMSetanceListModel.swift in Sources */,
 				66B8FDB829E5757B0091B59B /* SpeechRecordVC.swift in Sources */,
+				66ACD49A29EE7AAA00A25D8A /* SMLogoutModel.swift in Sources */,
+				667A2FBE29EE4AC7006E9898 /* UserDefault.swift in Sources */,
+				66ACD49829EE669800A25D8A /* SentanceListApi.swift in Sources */,
 				66F4F2C029ED51AA00B69357 /* LogInApi.swift in Sources */,
 				66C4DAF029E7D8F500EE1A9E /* ContainerViewController.swift in Sources */,
 				66DBEDD329E58285006C260A /* AccountVC.swift in Sources */,
 				66C4DAF329E7DBA400EE1A9E /* SMCustomTableViewCell.swift in Sources */,
+				66ACD4A029EEB83C00A25D8A /* UserAudioCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
