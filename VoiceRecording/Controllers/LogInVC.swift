@@ -102,10 +102,11 @@ class LogInVC: UIViewController {
               
               if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                    //Handle the response JSON
+                  print(responseJSON)
                   let decoder = JSONDecoder()
                   do {
                       let jsonData = try decoder.decode(LogInResultJson.self, from: data)
-                      if let error_no = jsonData.error_no, let error_message = jsonData.error_message, let token = jsonData.data?.token {
+                      if let error_no = jsonData.error_no, let error_message = jsonData.error_message, let token = jsonData.data?.token, let name = jsonData.data?.name {
                           if error_no == 0 && error_message == "success" {
                               DispatchQueue.main.async {
                                   let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
@@ -116,6 +117,7 @@ class LogInVC: UIViewController {
                               UserDefaults.SFSDefault(setValue: phoneNumber, forKey: "phoneNumber")
                               UserDefaults.SFSDefault(setValue: password, forKey: "password")
                               UserDefaults.SFSDefault(setValue: token, forKey: "token")
+                              UserDefaults.SFSDefault(setValue: name, forKey: "name")
                               
                           } else {
                               DispatchQueue.main.async {

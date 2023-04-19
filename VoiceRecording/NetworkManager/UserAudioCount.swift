@@ -7,8 +7,9 @@
 
 import Foundation
 class UserAudioCountManager {
+    var resultModel: SMAudioCountModel?
     
-    func getAudioCountApiCall() {
+    func getAudioCountApiCall(completionHandler: @escaping (SMAudioCountModel?, Error?) -> Void) {
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: userAudioCount_API) else {
             return
@@ -44,15 +45,15 @@ class UserAudioCountManager {
                 return
             }
             
-            if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) {
                 debugPrint(responseJSON)
                 let decoder = JSONDecoder()
                 do {
-                    let jsonData = try decoder.decode(SMLogoutModel.self, from: data)
+                    let jsonData = try decoder.decode(SMAudioCountModel.self, from: data)
                     if let error_no = jsonData.error_no, let error_message = jsonData.error_message {
                         if error_no == 0 && error_message == "success" {
                             debugPrint(error_no,error_message)
-                            
+                            completionHandler(jsonData.self,error)
                         }
                     }
                     

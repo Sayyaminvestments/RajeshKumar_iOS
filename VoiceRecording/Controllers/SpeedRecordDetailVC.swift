@@ -10,22 +10,28 @@ import UIKit
 class SpeedRecordDetailVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    var titleName: String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        titleLabel.text = titleName
     }
     
     @IBAction func startRecordingBtnPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func stopRecordingBtnPressed(_ sender: UIButton) {
     }
     
     @IBAction func playRecordingBtnPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
+        
     }
     
 }

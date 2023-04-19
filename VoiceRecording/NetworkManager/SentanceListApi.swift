@@ -7,7 +7,8 @@
 
 import Foundation
 class SentanceListManger {
-    func sentanceListApi() {
+    var resultModel: SMSetanceListModel?
+    func sentanceListApi(completionHandler: @escaping (SMSetanceListModel?,Error?)-> Void) {
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: sentanceList_API) else {
             return
@@ -46,14 +47,19 @@ class SentanceListManger {
                 return
             }
             
-            if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+            if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) {
                 debugPrint(responseJSON)
                 let decoder = JSONDecoder()
                 do {
                     let jsonData = try decoder.decode(SMSetanceListModel.self, from: data)
-                    if let error_no = jsonData.error_no, let error_message = jsonData.error_message {
+                    if let error_no = jsonData.error_no, let error_message = jsonData.error_message,let list = jsonData.data?.list {
                         if error_no == 0 && error_message == "success" {
                             debugPrint(error_no,error_message)
+                            completionHandler(jsonData.self,error)
+                            for i in list {
+                                print("category===",i.text ?? "")
+                                
+                            }
                             
                         } else {
                             

@@ -53,6 +53,7 @@ class LogoutManager {
                             UserDefaults.SFSDefault(removeObjectForKey: "phoneNumber")
                             UserDefaults.SFSDefault(removeObjectForKey: "password")
                             UserDefaults.SFSDefault(removeObjectForKey: "token")
+                            UserDefaults.SFSDefault(removeObjectForKey: "name")
                             
                         }
                     }

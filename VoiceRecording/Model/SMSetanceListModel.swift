@@ -6,20 +6,21 @@
 //
 
 import Foundation
+
 struct SMSetanceListModel: Decodable {
     var error_no: Int?
     var error_message: String?
     var region: String?
-    var data: getData?
+    var data: GetData?
     
 }
-struct getData: Decodable {
+struct GetData: Decodable {
     var count: Int?
     var list: [ListArray]?
 }
 struct ListArray: Decodable{
     var category: String?
-    var hasAudio: Int?
+    //var hasAudio: Int?
     var index: Int?
     var sentence_no: String?
     var text: String?

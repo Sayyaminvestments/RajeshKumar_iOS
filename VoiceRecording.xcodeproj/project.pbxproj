@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		667A2FBE29EE4AC7006E9898 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A2FBD29EE4AC7006E9898 /* UserDefault.swift */; };
+		668847B129EFCB5E0092545F /* SMAudioCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668847B029EFCB5E0092545F /* SMAudioCountModel.swift */; };
 		66ACD49829EE669800A25D8A /* SentanceListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49729EE669800A25D8A /* SentanceListApi.swift */; };
 		66ACD49A29EE7AAA00A25D8A /* SMLogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */; };
 		66ACD49C29EE91D100A25D8A /* SMSetanceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		667A2FBD29EE4AC7006E9898 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		668847B029EFCB5E0092545F /* SMAudioCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAudioCountModel.swift; sourceTree = "<group>"; };
 		66ACD49729EE669800A25D8A /* SentanceListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentanceListApi.swift; sourceTree = "<group>"; };
 		66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMLogoutModel.swift; sourceTree = "<group>"; };
 		66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSetanceListModel.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */,
 				66ACD49929EE7AAA00A25D8A /* SMLogoutModel.swift */,
 				66ACD49B29EE91D100A25D8A /* SMSetanceListModel.swift */,
+				668847B029EFCB5E0092545F /* SMAudioCountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B8FD8C29E55B600091B59B /* LogInVC.swift in Sources */,
+				668847B129EFCB5E0092545F /* SMAudioCountModel.swift in Sources */,
 				66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */,
 				66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */,
 				66B8FD8829E55B600091B59B /* AppDelegate.swift in Sources */,
