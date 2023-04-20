@@ -17,9 +17,11 @@ class AccountVC: UIViewController {
     let objLogoutManager = LogoutManager()
     let objUserAudioCountManager = UserAudioCountManager()
     var audioCountData: ResData?
+    let objBaseVC = BaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         objUserAudioCountManager.getAudioCountApiCall { resultData, error in
             if let phone = UserDefaults.SFSDefault(valueForKey: "phoneNumber") as? String, let name = UserDefaults.SFSDefault(valueForKey: "name") as? String{
                 if let data = resultData?.data {
@@ -33,6 +35,12 @@ class AccountVC: UIViewController {
                     }
                 }
             }
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.objBaseVC.showalert(title: "", message: "Hello alert")
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +57,5 @@ class AccountVC: UIViewController {
         objLogoutManager.logoutApiCall()
         
     }
-    
 }
 

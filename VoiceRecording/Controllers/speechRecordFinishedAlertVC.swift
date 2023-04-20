@@ -16,6 +16,7 @@ class speechRecordFinishedAlertVC: UIViewController {
     }
     
     @IBAction func yesBtnPressed(_ sender: UIButton) {
+        
     }
     @IBAction func noBtnPressed(_ sender: UIButton) {
     }

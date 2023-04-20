@@ -27,7 +27,7 @@ class SentanceListManger {
             parameter["token"] = token
             parameter["page_number"] = 1
             parameter["page_size"] = 10
-            parameter["state"] = "waiting"
+            parameter["state"] = "finished"
             parameter["app_version"] = "1.0.0"
             debugPrint(parameter)
             
@@ -74,4 +74,5 @@ class SentanceListManger {
         }
         task.resume()
     }
+    
 }

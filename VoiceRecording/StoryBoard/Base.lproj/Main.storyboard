@@ -132,12 +132,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FaE-D1-VI9">
                                         <rect key="frame" x="20" y="85" width="283" height="65"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rr-ko-zuh">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rr-ko-zuh">
                                                 <rect key="frame" x="0.0" y="0.0" width="123" height="65"/>
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="No" cornerStyle="capsule"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="alert_button_no" cornerStyle="capsule"/>
                                                 <connections>
                                                     <action selector="noBtnPressed:" destination="0Ps-LS-OrP" eventType="touchUpInside" id="t29-l9-N0e"/>
                                                 </connections>
@@ -699,6 +698,7 @@
         <image name="Loan N 3" width="38" height="38"/>
         <image name="Logoutbtn-1" width="327" height="52"/>
         <image name="account" width="20" height="20"/>
+        <image name="alert_button_no" width="126" height="44"/>
         <image name="all" width="126" height="44"/>
         <image name="bg" width="375" height="812"/>
         <image name="bg copy" width="375" height="812"/>

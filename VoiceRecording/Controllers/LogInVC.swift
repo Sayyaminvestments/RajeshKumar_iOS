@@ -16,11 +16,11 @@ class LogInVC: UIViewController {
     // Variables
     var iconClick = false
     let imageicon = UIImageView()
-    
+    let objBaseVC = BaseHelper()
     // View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         imageicon.image = UIImage(named:"Closeeye.png")
         let contentview = UIView()
         contentview.addSubview(imageicon)
@@ -65,6 +65,7 @@ class LogInVC: UIViewController {
     }
     
     @IBAction func logInpressed(_ sender: UIButton) {
+       
         LogInApiCalling()
 
     }
@@ -78,6 +79,7 @@ class LogInVC: UIViewController {
         guard let url = URL(string: loigIn_API) else {
             return
         }
+       // objBaseVC.startLoader()
           var request = URLRequest(url: url)
           request.httpMethod = "POST"
           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -120,9 +122,7 @@ class LogInVC: UIViewController {
                               UserDefaults.SFSDefault(setValue: name, forKey: "name")
                               
                           } else {
-                              DispatchQueue.main.async {
-                                  self.showSimpleAlert()
-                              }
+                              self.objBaseVC.showalert(title: "", message: "Please enter the correct phone number or password.")
                               print("Please enter the correct phone number or password.")
                           }
                       }
@@ -135,14 +135,5 @@ class LogInVC: UIViewController {
         task.resume()
         
     }
-    
-    // Show Alert
-    func showSimpleAlert() {
-        let alert = UIAlertController(title: "", message: "Please enter the correct phone number or password.",         preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-       
-        self.present(alert, animated: true, completion: nil)
-    }
-    
 }
 

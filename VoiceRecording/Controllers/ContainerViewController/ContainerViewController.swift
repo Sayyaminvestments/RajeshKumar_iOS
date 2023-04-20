@@ -11,6 +11,7 @@ class ContainerViewController: UIViewController,UITableViewDataSource,UITableVie
 
     @IBOutlet weak var table: UITableView!
     var networkManager = SentanceListManger()
+    
     var listModel = [ListArray]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,9 @@ class ContainerViewController: UIViewController,UITableViewDataSource,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
-        if let title = listModel[indexPath.row].text {
+        if let title = listModel[indexPath.row].text,let sentence_no = listModel[indexPath.row].sentence_no {
             controller.titleName =  title
+            controller.sentence_no = sentence_no
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }

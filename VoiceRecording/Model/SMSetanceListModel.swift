@@ -20,7 +20,7 @@ struct GetData: Decodable {
 }
 struct ListArray: Decodable{
     var category: String?
-    //var hasAudio: Int?
+    var hasAudio: Bool?
     var index: Int?
     var sentence_no: String?
     var text: String?
