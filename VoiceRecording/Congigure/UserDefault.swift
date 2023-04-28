@@ -6,10 +6,9 @@
 //
 
 
-import UIKit
-import Dispatch
+
 import Foundation
-import CoreLocation
+
 //--------------MARK:- NSUserDefaults Extension -
 extension UserDefaults
 {

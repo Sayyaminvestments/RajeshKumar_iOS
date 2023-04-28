@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66789CB429F91BC700E935A8 /* Lerp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66789CB329F91BC700E935A8 /* Lerp.swift */; };
+		66789CB629F91BEE00E935A8 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66789CB529F91BEE00E935A8 /* DateExtension.swift */; };
+		66789CB829F91BF200E935A8 /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66789CB729F91BF200E935A8 /* Timeout.swift */; };
+		66789CBB29F91C4A00E935A8 /* SiriWaveLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66789CBA29F91C4A00E935A8 /* SiriWaveLine.swift */; };
+		66789CBD29F91C4E00E935A8 /* SiriWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66789CBC29F91C4E00E935A8 /* SiriWaveView.swift */; };
 		667A2FBE29EE4AC7006E9898 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A2FBD29EE4AC7006E9898 /* UserDefault.swift */; };
 		668847B129EFCB5E0092545F /* SMAudioCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668847B029EFCB5E0092545F /* SMAudioCountModel.swift */; };
 		668847B329F1158C0092545F /* BaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668847B229F1158C0092545F /* BaseHelper.swift */; };
@@ -32,7 +37,7 @@
 		66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDCE29E58245006C260A /* FinishedVC.swift */; };
 		66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD029E5826F006C260A /* RecordVC.swift */; };
 		66DBEDD329E58285006C260A /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD229E58285006C260A /* AccountVC.swift */; };
-		66DBEDD529E67C6C006C260A /* speechRecordFinishedAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD429E67C6C006C260A /* speechRecordFinishedAlertVC.swift */; };
+		66DBEDD529E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD429E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift */; };
 		66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */; };
 		66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */; };
 		66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4F2BD29ED43DF00B69357 /* Config.swift */; };
@@ -57,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66789CB329F91BC700E935A8 /* Lerp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lerp.swift; sourceTree = "<group>"; };
+		66789CB529F91BEE00E935A8 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		66789CB729F91BF200E935A8 /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
+		66789CBA29F91C4A00E935A8 /* SiriWaveLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriWaveLine.swift; sourceTree = "<group>"; };
+		66789CBC29F91C4E00E935A8 /* SiriWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriWaveView.swift; sourceTree = "<group>"; };
 		667A2FBD29EE4AC7006E9898 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		668847B029EFCB5E0092545F /* SMAudioCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAudioCountModel.swift; sourceTree = "<group>"; };
 		668847B229F1158C0092545F /* BaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHelper.swift; sourceTree = "<group>"; };
@@ -86,7 +96,7 @@
 		66DBEDCE29E58245006C260A /* FinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedVC.swift; sourceTree = "<group>"; };
 		66DBEDD029E5826F006C260A /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		66DBEDD229E58285006C260A /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
-		66DBEDD429E67C6C006C260A /* speechRecordFinishedAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechRecordFinishedAlertVC.swift; sourceTree = "<group>"; };
+		66DBEDD429E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecordFinishedAlertVC.swift; sourceTree = "<group>"; };
 		66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedRecordDetailVC.swift; sourceTree = "<group>"; };
 		66F4F2B629EBDD1700B69357 /* SMLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMLoginModel.swift; sourceTree = "<group>"; };
 		66F4F2BD29ED43DF00B69357 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -118,6 +128,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66789CB929F91C0200E935A8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				66789CB729F91BF200E935A8 /* Timeout.swift */,
+				66789CB329F91BC700E935A8 /* Lerp.swift */,
+				66789CB529F91BEE00E935A8 /* DateExtension.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		66789CBE29F91C5F00E935A8 /* SiriWaveFormHelper */ = {
+			isa = PBXGroup;
+			children = (
+				66789CBA29F91C4A00E935A8 /* SiriWaveLine.swift */,
+				66789CBC29F91C4E00E935A8 /* SiriWaveView.swift */,
+			);
+			path = SiriWaveFormHelper;
+			sourceTree = "<group>";
+		};
 		66B8FD7B29E55B600091B59B = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +170,7 @@
 		66B8FD8629E55B600091B59B /* VoiceRecording */ = {
 			isa = PBXGroup;
 			children = (
-				66F4F2BA29ED437400B69357 /* Resources */,
+				66F4F2BA29ED437400B69357 /* Application */,
 				66F4F2BC29ED43C300B69357 /* Congigure */,
 				66F4F2B929EBDE2700B69357 /* NetworkManager */,
 				66F4F2B529EBDCFD00B69357 /* Model */,
@@ -179,7 +208,7 @@
 				66DBEDCA29E57B2B006C260A /* CustomTabBarController */,
 				66B8FD8B29E55B600091B59B /* LogInVC.swift */,
 				66B8FDB729E5757B0091B59B /* SpeechRecordVC.swift */,
-				66DBEDD429E67C6C006C260A /* speechRecordFinishedAlertVC.swift */,
+				66DBEDD429E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift */,
 				66DBEDD629E6826B006C260A /* SpeedRecordDetailVC.swift */,
 			);
 			path = Controllers;
@@ -252,13 +281,13 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
-		66F4F2BA29ED437400B69357 /* Resources */ = {
+		66F4F2BA29ED437400B69357 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				66B8FD8729E55B600091B59B /* AppDelegate.swift */,
 				66B8FD8929E55B600091B59B /* SceneDelegate.swift */,
 			);
-			path = Resources;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		66F4F2BB29ED439800B69357 /* CustomCell */ = {
@@ -272,6 +301,8 @@
 		66F4F2BC29ED43C300B69357 /* Congigure */ = {
 			isa = PBXGroup;
 			children = (
+				66789CBE29F91C5F00E935A8 /* SiriWaveFormHelper */,
+				66789CB929F91C0200E935A8 /* Utility */,
 				66F4F2BD29ED43DF00B69357 /* Config.swift */,
 				667A2FBD29EE4AC7006E9898 /* UserDefault.swift */,
 				668847B229F1158C0092545F /* BaseHelper.swift */,
@@ -415,9 +446,10 @@
 				66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */,
 				66F4F2BE29ED43DF00B69357 /* Config.swift in Sources */,
 				66B8FD8829E55B600091B59B /* AppDelegate.swift in Sources */,
+				66789CB629F91BEE00E935A8 /* DateExtension.swift in Sources */,
 				66ACD49E29EEB66B00A25D8A /* LogoutApi.swift in Sources */,
 				66B8FD8A29E55B600091B59B /* SceneDelegate.swift in Sources */,
-				66DBEDD529E67C6C006C260A /* speechRecordFinishedAlertVC.swift in Sources */,
+				66DBEDD529E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift in Sources */,
 				66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */,
 				66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */,
 				66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */,
@@ -426,12 +458,16 @@
 				66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */,
 				66ACD49C29EE91D100A25D8A /* SMSetanceListModel.swift in Sources */,
 				66B8FDB829E5757B0091B59B /* SpeechRecordVC.swift in Sources */,
+				66789CB829F91BF200E935A8 /* Timeout.swift in Sources */,
 				66ACD49A29EE7AAA00A25D8A /* SMLogoutModel.swift in Sources */,
+				66789CBB29F91C4A00E935A8 /* SiriWaveLine.swift in Sources */,
 				667A2FBE29EE4AC7006E9898 /* UserDefault.swift in Sources */,
 				66ACD49829EE669800A25D8A /* SentanceListApi.swift in Sources */,
+				66789CB429F91BC700E935A8 /* Lerp.swift in Sources */,
 				66F4F2C029ED51AA00B69357 /* LogInApi.swift in Sources */,
 				66C4DAF029E7D8F500EE1A9E /* ContainerViewController.swift in Sources */,
 				66DBEDD329E58285006C260A /* AccountVC.swift in Sources */,
+				66789CBD29F91C4E00E935A8 /* SiriWaveView.swift in Sources */,
 				66C4DAF329E7DBA400EE1A9E /* SMCustomTableViewCell.swift in Sources */,
 				66ACD4A029EEB83C00A25D8A /* UserAudioCount.swift in Sources */,
 			);
@@ -608,10 +644,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VoiceRecording/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Application requires access to phone microphone to make recordings";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -622,8 +660,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Sayyam-Investments.Voice-recording-app.VoiceRecording";
+				PRODUCT_BUNDLE_IDENTIFIER = "Capsa-Investments.Voice-recording-app.VoiceRecording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -635,10 +674,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VoiceRecording/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Application requires access to phone microphone to make recordings";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -649,8 +690,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Sayyam-Investments.Voice-recording-app.VoiceRecording";
+				PRODUCT_BUNDLE_IDENTIFIER = "Capsa-Investments.Voice-recording-app.VoiceRecording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

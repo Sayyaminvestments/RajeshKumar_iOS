@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountVC: UIViewController {
+class AccountVC: BaseHelper {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneNoLabel: UILabel!
@@ -37,12 +37,6 @@ class AccountVC: UIViewController {
             }
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.async {
-            self.objBaseVC.showalert(title: "", message: "Hello alert")
-        }
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -54,8 +48,12 @@ class AccountVC: UIViewController {
     }
 
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
-        objLogoutManager.logoutApiCall()
-        
+        let error_no = objLogoutManager.logoutApiCall()
+        if error_no == 0 {
+            showAlertWithBack(title: "", message: "Sucessfully Logout")
+        } else {
+            showalert(title: "", message: "Something Missing")
+        }
     }
 }
 

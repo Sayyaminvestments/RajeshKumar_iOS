@@ -7,20 +7,31 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDelegate{
 
+   
+    
     @IBOutlet weak var table: UITableView!
     var networkManager = SentanceListManger()
-    
+    var isWaiting = "waiting"
     var listModel = [ListArray]()
+    var titleName = ""
+    var sentance_no = ""
+    var item: ListArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkManager.sentanceListApi { resultData, error in
+
+        
+       //startLoader()
+        networkManager.sentanceListApi(isWaiting: isWaiting) { resultData, error in
+            DispatchQueue.main.async {
             if let listmdl = resultData {
+               // self.stopLoader()
                 if let listArray = listmdl.data?.list {
                     self.listModel = listArray
                     print("resultData====",self.listModel)
-                    DispatchQueue.main.async {
+                    
                         self.table.reloadData()
                     }
                 }
@@ -30,6 +41,8 @@ class ContainerViewController: UIViewController,UITableViewDataSource,UITableVie
         table.dataSource = self
         table.delegate = self
     }
+    
+    //MARK: Tableview Data Source & Table View Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listModel.count
     }
@@ -37,19 +50,45 @@ class ContainerViewController: UIViewController,UITableViewDataSource,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         let item = listModel[indexPath.row]
         cell.titleLabel.text = item.text
-        cell.phoneNoLabel.text = "Start Record"
+        if item.hasAudio == true {
+            cell.phoneNoLabel.isHidden = true
+            cell.greenImage.image = UIImage(named: "finished")
+        } else {
+            cell.greenImage.isHidden = true
+            cell.phoneNoLabel.isHidden = false
+            cell.phoneNoLabel.text = "Start Record"
+            
+        }
+         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
-        if let title = listModel[indexPath.row].text,let sentence_no = listModel[indexPath.row].sentence_no {
-            controller.titleName =  title
-            controller.sentence_no = sentence_no
+        self.item = listModel[indexPath.row]
+        if item?.hasAudio == true {
+           
+            let alertVC = self.storyboard!.instantiateViewController(withIdentifier: "SpeechRecordFinishedAlertVC") as! SpeechRecordFinishedAlertVC
+            alertVC.delegate = self
+            self.present(alertVC, animated: true)
+           
+        } else {
+            let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
+            controller.listModel = item
+            self.navigationController?.pushViewController(controller, animated: true)
         }
-        self.navigationController?.pushViewController(controller, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
+}
+
+// Delegate
+extension ContainerViewController: SpeechRecordDelegate {
+    func speechRecordDetailVC() {
+        print("pushViewController")
+//        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
+//        controller.listModel = item
+//        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

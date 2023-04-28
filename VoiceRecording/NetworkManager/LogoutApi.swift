@@ -7,10 +7,11 @@
 
 import Foundation
 class LogoutManager {
-    func logoutApiCall() {
+    func logoutApiCall() ->Int{
+         var error_value = 0
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: logOut_API) else {
-            return
+            return error_value
         }
         var request = URLRequest(url: url)
         //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -54,6 +55,7 @@ class LogoutManager {
                             UserDefaults.SFSDefault(removeObjectForKey: "password")
                             UserDefaults.SFSDefault(removeObjectForKey: "token")
                             UserDefaults.SFSDefault(removeObjectForKey: "name")
+                            error_value = error_no
                             
                         }
                     }
@@ -64,5 +66,7 @@ class LogoutManager {
             }
         }
         task.resume()
+        return error_value
     }
+    
 }

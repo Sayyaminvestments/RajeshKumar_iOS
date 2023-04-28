@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneNoLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var greenImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

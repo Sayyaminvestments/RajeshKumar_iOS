@@ -7,20 +7,22 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }
 
-class SpeedRecordDetailVC: UIViewController {
+class SpeedRecordDetailVC: BaseHelper {
 
+    @IBOutlet weak var siriWaveFormView: SiriWaveView!
     @IBOutlet weak var titleLabel: UILabel!
-    var titleName: String = ""
+   
     var audioBs64 = ""
     var duration: Double = 0.0
-    var sentence_no = ""
-    
+   
+    var listModel: ListArray?
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -29,7 +31,9 @@ class SpeedRecordDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = titleName
+        siriVoiceWaveForm()
+        title = "Speech Record"
+        titleLabel.text = listModel?.text
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -39,6 +43,7 @@ class SpeedRecordDetailVC: UIViewController {
                 DispatchQueue.main.async {
                     if allowed {
                         print("Audio is Recording")
+                        
                     } else {
                         // failed to record
                         print("Failed to record")
@@ -52,6 +57,7 @@ class SpeedRecordDetailVC: UIViewController {
     }
     
     @IBAction func startRecordingBtnPressed(_ sender: UIButton) {
+        
         if audioRecorder == nil {
             startRecording()
         } else {
@@ -60,11 +66,13 @@ class SpeedRecordDetailVC: UIViewController {
     }
     
     @IBAction func stopRecordingBtnPressed(_ sender: UIButton) {
+        
         audioRecorder.pause()
         audioRecorder = nil
     }
     
     @IBAction func playRecordingBtnPressed(_ sender: UIButton) {
+        
         if audioPlayer == nil {
             startPlayback()
             audioBs64 = convertM4aToBs64()
@@ -79,6 +87,14 @@ class SpeedRecordDetailVC: UIViewController {
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
         addAudioSubmit()
+//        if audioBs64.isEmpty{
+//            DispatchQueue.main.async {
+//                self.showalert(title: "", message: "Please read and record following text")
+//            }
+//        } else {
+//            addAudioSubmit()
+//        }
+        
     }
     // MARK: - Recording
 
@@ -88,7 +104,7 @@ class SpeedRecordDetailVC: UIViewController {
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
+            AVSampleRateKey: 16000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue
         ]
@@ -105,7 +121,23 @@ class SpeedRecordDetailVC: UIViewController {
             finishRecording(success: false)
         }
     }
-    
+    // Voice Wave
+    private func siriVoiceWaveForm() {
+        var ampl: CGFloat = 1
+        let speed: CGFloat = 0.1
+
+        func modulate() {
+        
+            ampl = Lerp.lerp(ampl, 1.5, speed)
+            self.siriWaveFormView.update(ampl * 5)
+        }
+        
+        _ = Timeout.setInterval(TimeInterval(speed)) {
+            DispatchQueue.main.async {
+                modulate()
+            }
+        }
+    }
     func finishRecording(success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
@@ -120,7 +152,7 @@ class SpeedRecordDetailVC: UIViewController {
         }
        
     }
-    // MARK: - COnvert m4a to wav
+    // MARK: - Convert m4a to wav
     func convertM4aToBs64() -> String{
         
         var audioString = ""
@@ -174,10 +206,11 @@ class SpeedRecordDetailVC: UIViewController {
             parameter["password"] = pass
             parameter["token"] = token
             parameter["file"] = audioBs64
-            parameter["file_name"] = sentence_no
+            parameter["file_name"] = listModel?.sentence_no
             parameter["duration"] = duration
-            parameter["sentence_no"] = sentence_no
-            parameter["audio_upload_time"] = 1668416494236
+            parameter["sentence_no"] = listModel?.sentence_no
+            parameter["audio_upload_time"] = Date().millisecondsSince1970
+            parameter["platform"] = "ios"
             debugPrint(parameter)
             
         }
@@ -218,7 +251,6 @@ class SpeedRecordDetailVC: UIViewController {
         }
         task.resume()
     }
-    
 }
 
 extension SpeedRecordDetailVC: AVAudioRecorderDelegate {
@@ -238,3 +270,4 @@ extension SpeedRecordDetailVC: AVAudioPlayerDelegate {
     }
     
 }
+

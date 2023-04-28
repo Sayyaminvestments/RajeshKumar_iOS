@@ -8,7 +8,7 @@
 import Foundation
 class SentanceListManger {
     var resultModel: SMSetanceListModel?
-    func sentanceListApi(completionHandler: @escaping (SMSetanceListModel?,Error?)-> Void) {
+    func sentanceListApi(isWaiting: String, completionHandler: @escaping (SMSetanceListModel?,Error?)-> Void) {
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: sentanceList_API) else {
             return
@@ -21,14 +21,14 @@ class SentanceListManger {
         if let phone = UserDefaults.SFSDefault(valueForKey: "phoneNumber") as? String,
            let pass = UserDefaults.SFSDefault(valueForKey: "password") as? String,
            let token = UserDefaults.SFSDefault(valueForKey: "token") as? String{
-            
+            print(isWaiting)
             parameter["phone"] = phone
             parameter["password"] = pass
             parameter["token"] = token
             parameter["page_number"] = 1
             parameter["page_size"] = 10
-            parameter["state"] = "finished"
-            parameter["app_version"] = "1.0.0"
+            parameter["state"] = isWaiting//"waiting"
+            parameter["app_version"] = "1.1.0"
             debugPrint(parameter)
             
         }

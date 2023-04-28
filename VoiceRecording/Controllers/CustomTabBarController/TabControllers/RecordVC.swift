@@ -15,8 +15,6 @@ class RecordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
         
         waitingLineLabel.isHidden = false
         finishedLineLabel.isHidden = true
@@ -30,6 +28,10 @@ class RecordVC: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeRight.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
     }
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
@@ -50,11 +52,13 @@ class RecordVC: UIViewController {
     }
     
     @IBAction func waitingBtnPressed(_ sender: UIButton) {
+       
         addViewControllerForWaiting()
         
     }
     
     @IBAction func finishedBtnPressed(_ sender: UIButton) {
+        
         addViewControllerForFinished()
         
         
@@ -68,6 +72,8 @@ class RecordVC: UIViewController {
     }
     // addViewControllerForWaiting
     func addViewControllerForWaiting() {
+        
+       
         // line hidden
         waitingLineLabel.isHidden = false
         finishedLineLabel.isHidden = true
@@ -76,15 +82,17 @@ class RecordVC: UIViewController {
         removeChild()
         
         // Add child view
-        let finishedViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
-        addChild(finishedViewController)
-        finishedViewController.view.frame = CGRect(x: 20, y: 190, width: 351, height: 624)
-        view.addSubview(finishedViewController.view)
-        finishedViewController.didMove(toParent: self)
+        let waitingViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
+        addChild(waitingViewController)
+        waitingViewController.isWaiting = "waiting"
+        waitingViewController.view.frame = CGRect(x: 20, y: 190, width: 351, height: 624)
+        view.addSubview(waitingViewController.view)
+        waitingViewController.didMove(toParent: self)
     }
     
     // addViewControllerForFinished
     func addViewControllerForFinished() {
+       
         // Line hidden
         waitingLineLabel.isHidden = true
         finishedLineLabel.isHidden = false
@@ -96,6 +104,7 @@ class RecordVC: UIViewController {
         
         let finishedViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
         addChild(finishedViewController)
+        finishedViewController.isWaiting = "finished"
         finishedViewController.view.frame = CGRect(x: 20, y: 190, width: 351, height: 624)
         view.addSubview(finishedViewController.view)
         finishedViewController.didMove(toParent: self)

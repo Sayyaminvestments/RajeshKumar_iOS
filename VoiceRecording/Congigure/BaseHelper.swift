@@ -13,18 +13,13 @@ class BaseHelper: UIViewController {
     
     //var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x:105, y: 250, width: 100, height: 150), type: .cubeTransition, color: UIColor.hallaColor(), padding: 20)
     var indicatorView = UIActivityIndicatorView()
-    @IBOutlet weak var bgImg: UIImageView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-         indicatorView = self.activityIndicator(style: .medium,
-                                                       center: self.view.center)
-        indicatorView.isHidden = true
-        self.view.addSubview(indicatorView)
+         
         
         // Do any additional setup after loading the view.
     }
-    
-   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,19 +47,22 @@ class BaseHelper: UIViewController {
     }
     func stopLoader ()
     {
-        indicatorView.isHidden = true;
+        
         self.indicatorView.stopAnimating()
+        indicatorView.removeFromSuperview()
     }
     func startLoader ()
     {
-        indicatorView.isHidden = false;
+        indicatorView = self.activityIndicator(style: .medium,
+                                               center: self.view.center)
+      
+       self.view.addSubview(indicatorView)
         self.indicatorView.startAnimating()
     }
 
     func showalert (title: String,message : String)
     {
        
-        print("Hello Rajesh")
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
             print("Handle Ok logic here")
@@ -73,20 +71,20 @@ class BaseHelper: UIViewController {
             self.present(alert, animated: true, completion: nil)
            }
     }
-    func getTopMostViewController() -> UIViewController? {
-        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-
-        while let presentedViewController = topMostViewController?.presentedViewController {
-            topMostViewController = presentedViewController
-        }
-
-        return topMostViewController
-    }
+//    func getTopMostViewController() -> UIViewController? {
+//        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+//
+//        while let presentedViewController = topMostViewController?.presentedViewController {
+//            topMostViewController = presentedViewController
+//        }
+//
+//        return topMostViewController
+//    }
     func showAlertWithBack (title: String,message : String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
-            self.navigationController?.popViewController(animated: true)
+            self.tabBarController?.navigationController?.popViewController(animated: true)
             print("Handle Ok logic here")
         }))
         self.present(alert, animated: true, completion: nil)
