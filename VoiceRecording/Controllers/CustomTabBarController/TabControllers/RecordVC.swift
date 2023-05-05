@@ -9,10 +9,12 @@ import UIKit
 
 class RecordVC: UIViewController {
     
+    // IBOutlet
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var finishedLineLabel: UILabel!
     @IBOutlet weak var waitingLineLabel: UILabel!
     
-    
+    // view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,7 +87,7 @@ class RecordVC: UIViewController {
         let waitingViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
         addChild(waitingViewController)
         waitingViewController.isWaiting = "waiting"
-        waitingViewController.view.frame = CGRect(x: 20, y: 190, width: 351, height: 624)
+        waitingViewController.view.frame = CGRect(x: 20, y: 190, width: containerView.frame.width, height: containerView.frame.height)
         view.addSubview(waitingViewController.view)
         waitingViewController.didMove(toParent: self)
     }
@@ -105,7 +107,7 @@ class RecordVC: UIViewController {
         let finishedViewController = self.storyboard?.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
         addChild(finishedViewController)
         finishedViewController.isWaiting = "finished"
-        finishedViewController.view.frame = CGRect(x: 20, y: 190, width: 351, height: 624)
+        finishedViewController.view.frame = CGRect(x: 20, y: 190, width: containerView.frame.width, height: containerView.frame.height)
         view.addSubview(finishedViewController.view)
         finishedViewController.didMove(toParent: self)
     }

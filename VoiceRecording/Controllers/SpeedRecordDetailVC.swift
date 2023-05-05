@@ -16,12 +16,13 @@ func getDocumentsDirectory() -> URL {
 
 class SpeedRecordDetailVC: BaseHelper {
 
+    //IBOutlet
     @IBOutlet weak var siriWaveFormView: SiriWaveView!
     @IBOutlet weak var titleLabel: UILabel!
    
+    // variables
     var audioBs64 = ""
     var duration: Double = 0.0
-   
     var listModel: ListArray?
     
     var recordingSession: AVAudioSession!
@@ -29,9 +30,10 @@ class SpeedRecordDetailVC: BaseHelper {
     var audioPlayer: AVAudioPlayer!
     var audioURL: URL?
     
+    // view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        siriVoiceWaveForm()
+        siriWaveFormView.isHidden = true
         title = "Speech Record"
         titleLabel.text = listModel?.text
         recordingSession = AVAudioSession.sharedInstance()
@@ -56,23 +58,38 @@ class SpeedRecordDetailVC: BaseHelper {
         }
     }
     
+    //IBAction
     @IBAction func startRecordingBtnPressed(_ sender: UIButton) {
-        
+        siriWaveFormView.isHidden = false
         if audioRecorder == nil {
             startRecording()
+            siriVoiceWaveForm()
         } else {
             finishRecording(success: true)
         }
     }
     
     @IBAction func stopRecordingBtnPressed(_ sender: UIButton) {
+        if audioRecorder == nil {
+            DispatchQueue.main.async {
+                self.showalert(title: "", message: "Please recording first and press the stop recording.")
+                return
+            }
+        } else {
+            siriWaveFormView.isHidden = true
+            audioRecorder.pause()
+            audioRecorder = nil
+        }
         
-        audioRecorder.pause()
-        audioRecorder = nil
     }
     
     @IBAction func playRecordingBtnPressed(_ sender: UIButton) {
-        
+        if siriWaveFormView.isHidden == false {
+            DispatchQueue.main.async {
+                self.showalert(title: "", message: "Please stop recording first and play the recorded audio.")
+                return
+            }
+        }
         if audioPlayer == nil {
             startPlayback()
             audioBs64 = convertM4aToBs64()
@@ -86,14 +103,13 @@ class SpeedRecordDetailVC: BaseHelper {
     }
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
-        addAudioSubmit()
-//        if audioBs64.isEmpty{
-//            DispatchQueue.main.async {
-//                self.showalert(title: "", message: "Please read and record following text")
-//            }
-//        } else {
-//            addAudioSubmit()
-//        }
+        if audioBs64.isEmpty{
+            DispatchQueue.main.async {
+                self.showalert(title: "", message: "Please read and record following text")
+            }
+        } else {
+            addAudioSubmit()
+        }
         
     }
     // MARK: - Recording
@@ -153,7 +169,7 @@ class SpeedRecordDetailVC: BaseHelper {
        
     }
     // MARK: - Convert m4a to wav
-    func convertM4aToBs64() -> String{
+    func convertM4aToBs64() -> String {
         
         var audioString = ""
         if let url = audioURL {

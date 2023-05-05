@@ -13,10 +13,13 @@ protocol SpeechRecordDelegate {
 
 class SpeechRecordFinishedAlertVC: UIViewController {
     
+    // IBOutlet
     @IBOutlet weak var alertView: UIView!
     
+    //variables
     var delegate: SpeechRecordDelegate?
     
+    // view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         alertView.layer.cornerRadius = 11
@@ -34,11 +37,6 @@ class SpeechRecordFinishedAlertVC: UIViewController {
                 self.delegate?.speechRecordDetailVC()
             }
         }
-//        dismiss(animated: true, completion: nil)
-//        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
-//        controller.modalPresentationStyle = .fullScreen
-//        self.present(controller, animated: true)
-        
     }
     @IBAction func noBtnPressed(_ sender: UIButton) {
         

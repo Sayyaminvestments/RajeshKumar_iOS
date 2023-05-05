@@ -33,8 +33,6 @@
 		66C4DAF029E7D8F500EE1A9E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C4DAEF29E7D8F500EE1A9E /* ContainerViewController.swift */; };
 		66C4DAF329E7DBA400EE1A9E /* SMCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C4DAF229E7DBA400EE1A9E /* SMCustomTableViewCell.swift */; };
 		66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDC829E57B24006C260A /* TabViewController.swift */; };
-		66DBEDCD29E58228006C260A /* WaitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDCC29E58228006C260A /* WaitingVC.swift */; };
-		66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDCE29E58245006C260A /* FinishedVC.swift */; };
 		66DBEDD129E5826F006C260A /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD029E5826F006C260A /* RecordVC.swift */; };
 		66DBEDD329E58285006C260A /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD229E58285006C260A /* AccountVC.swift */; };
 		66DBEDD529E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DBEDD429E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift */; };
@@ -92,8 +90,6 @@
 		66C4DAEF29E7D8F500EE1A9E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		66C4DAF229E7DBA400EE1A9E /* SMCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCustomTableViewCell.swift; sourceTree = "<group>"; };
 		66DBEDC829E57B24006C260A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-		66DBEDCC29E58228006C260A /* WaitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingVC.swift; sourceTree = "<group>"; };
-		66DBEDCE29E58245006C260A /* FinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedVC.swift; sourceTree = "<group>"; };
 		66DBEDD029E5826F006C260A /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		66DBEDD229E58285006C260A /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		66DBEDD429E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecordFinishedAlertVC.swift; sourceTree = "<group>"; };
@@ -242,8 +238,6 @@
 		66DBEDCB29E581D0006C260A /* TabControllers */ = {
 			isa = PBXGroup;
 			children = (
-				66DBEDCC29E58228006C260A /* WaitingVC.swift */,
-				66DBEDCE29E58245006C260A /* FinishedVC.swift */,
 				66DBEDD029E5826F006C260A /* RecordVC.swift */,
 				66DBEDD229E58285006C260A /* AccountVC.swift */,
 			);
@@ -451,10 +445,8 @@
 				66B8FD8A29E55B600091B59B /* SceneDelegate.swift in Sources */,
 				66DBEDD529E67C6C006C260A /* SpeechRecordFinishedAlertVC.swift in Sources */,
 				66F4F2B729EBDD1700B69357 /* SMLoginModel.swift in Sources */,
-				66DBEDCF29E58245006C260A /* FinishedVC.swift in Sources */,
 				66DBEDC929E57B24006C260A /* TabViewController.swift in Sources */,
 				668847B329F1158C0092545F /* BaseHelper.swift in Sources */,
-				66DBEDCD29E58228006C260A /* WaitingVC.swift in Sources */,
 				66DBEDD729E6826B006C260A /* SpeedRecordDetailVC.swift in Sources */,
 				66ACD49C29EE91D100A25D8A /* SMSetanceListModel.swift in Sources */,
 				66B8FDB829E5757B0091B59B /* SpeechRecordVC.swift in Sources */,
@@ -660,7 +652,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Capsa-Investments.Voice-recording-app.VoiceRecording";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capsaInvestments.VoiceRecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -690,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Capsa-Investments.Voice-recording-app.VoiceRecording";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capsaInvestments.VoiceRecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

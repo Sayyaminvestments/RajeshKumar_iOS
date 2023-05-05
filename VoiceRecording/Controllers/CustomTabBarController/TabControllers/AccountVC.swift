@@ -8,17 +8,20 @@
 import UIKit
 
 class AccountVC: BaseHelper {
-
+    
+    // IBOutlet
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneNoLabel: UILabel!
     @IBOutlet weak var adoptedLabel: UILabel!
     @IBOutlet weak var uploadedLabel: UILabel!
     
+    // variables
     let objLogoutManager = LogoutManager()
     let objUserAudioCountManager = UserAudioCountManager()
     var audioCountData: ResData?
     let objBaseVC = BaseHelper()
     
+    // View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
        

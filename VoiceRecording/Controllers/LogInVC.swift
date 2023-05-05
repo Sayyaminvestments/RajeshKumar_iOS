@@ -91,13 +91,13 @@ class LogInVC: BaseHelper {
               if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                    //Handle the response JSON
                   print(responseJSON)
-//                  if let error_no = responseJSON["error_no"] as? Int {
-//                      if error_no == 11511001 {
-//                          DispatchQueue.main.async {
-//                              self.showalert(title: "", message: "Please enter the correct phone number or password.")
-//                          }
-//                      }
-//                  }
+                  if let error_no = responseJSON["error_no"] as? Int {
+                      if error_no == 11511001 {
+                          DispatchQueue.main.async {
+                              self.showalert(title: "", message: "Please enter the correct phone number or password.")
+                          }
+                      }
+                  }
                   let decoder = JSONDecoder()
                   do {
                       let jsonData = try decoder.decode(LogInResultJson.self, from: data)

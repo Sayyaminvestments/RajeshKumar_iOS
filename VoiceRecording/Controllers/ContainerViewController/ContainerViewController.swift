@@ -9,9 +9,10 @@ import UIKit
 
 class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDelegate{
 
-   
+    // @IBOutlet
+   @IBOutlet weak var table: UITableView!
     
-    @IBOutlet weak var table: UITableView!
+    // variables
     var networkManager = SentanceListManger()
     var isWaiting = "waiting"
     var listModel = [ListArray]()
@@ -19,6 +20,7 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
     var sentance_no = ""
     var item: ListArray?
     
+    // view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,10 +87,9 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
 // Delegate
 extension ContainerViewController: SpeechRecordDelegate {
     func speechRecordDetailVC() {
-        print("pushViewController")
-//        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
-//        controller.listModel = item
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC
+        controller.listModel = item
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }
