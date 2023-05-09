@@ -17,6 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        if let username = UserDefaults.SFSDefault(valueForKey: "phoneNumber") as? String {
+            if !(username.isEmpty) {
+                print("Dash board")
+                dashBoardScreen()
+            } else {
+                signInScreen()
+            }
+        } else {
+            print("Dash board")
+            signInScreen()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +56,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    func dashBoardScreen() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let tabViewController = storyboard.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
+        let navigationController = UINavigationController.init(rootViewController: tabViewController)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+    
+    }
+    func signInScreen() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC
+        let navigationController = UINavigationController.init(rootViewController: logInVC)
+        self.window?.rootViewController = navigationController
     }
 }
 

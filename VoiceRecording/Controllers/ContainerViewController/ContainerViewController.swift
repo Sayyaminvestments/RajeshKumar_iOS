@@ -20,10 +20,17 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
     var sentance_no = ""
     var item: ListArray?
     
+    let refreshControl = UIRefreshControl()
+    
     // view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // pull refresh
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        table.addSubview(refreshControl) // not required when using UITableViewController
+        
         
        //startLoader()
         networkManager.sentanceListApi(isWaiting: isWaiting) { resultData, error in
@@ -43,7 +50,26 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
         table.dataSource = self
         table.delegate = self
     }
-    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        print("hello pull refresh")
+        networkManager.sentanceListApi(isWaiting: isWaiting) { resultData, error in
+            DispatchQueue.main.async {
+            if let listmdl = resultData {
+               // self.stopLoader()
+                if let listArray = listmdl.data?.list {
+                    self.listModel = listArray
+                    print("resultData====",self.listModel)
+                    
+                        self.table.reloadData()
+                    self.refreshControl.attributedTitle = NSAttributedString(string: "Refresh Success")
+                    self.refreshControl.endRefreshing()
+                    }
+                }
+            }
+            
+        }
+    }
     //MARK: Tableview Data Source & Table View Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listModel.count
@@ -71,7 +97,11 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
            
             let alertVC = self.storyboard!.instantiateViewController(withIdentifier: "SpeechRecordFinishedAlertVC") as! SpeechRecordFinishedAlertVC
             alertVC.delegate = self
-            self.present(alertVC, animated: true)
+            //alertVC.view.frame = CGRect(x: -15, y: -200, width: view.frame.width, height: view.frame.height)
+            alertVC.view.frame = view.bounds
+            self.view.addSubview(alertVC.view)
+            alertVC.didMove(toParent: self)
+            self.addChild(alertVC)
            
         } else {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "SpeedRecordDetailVC") as! SpeedRecordDetailVC

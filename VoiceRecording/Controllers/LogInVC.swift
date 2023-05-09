@@ -15,7 +15,7 @@ class LogInVC: BaseHelper {
     @IBOutlet weak var eyeButton: UIButton!
     
     // Variables
-    var iconClick = false
+    var iconClick = true
     
     // View Life Cycle
     override func viewDidLoad() {
@@ -106,8 +106,8 @@ class LogInVC: BaseHelper {
                               DispatchQueue.main.async {
                                   let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
                                   self.navigationController?.pushViewController(tabViewController, animated: true)
-                                  //self.passwordTextfield.text = ""
-                                  //self.phoneTextfield.text = ""
+                                  self.passwordTextfield.text = ""
+                                  self.phoneTextfield.text = ""
                                   
                                  
                               }

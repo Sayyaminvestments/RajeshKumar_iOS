@@ -28,19 +28,22 @@ class SpeechRecordFinishedAlertVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          let touch = touches.first
          if touch?.view == self.view {
-             self.dismiss(animated: true)
+             self.view.removeFromSuperview()
+             self.removeFromParent()
         }
     }
     @IBAction func yesBtnPressed(_ sender: UIButton) {
         if self.delegate != nil {
-             dismiss(animated: true) {
-                self.delegate?.speechRecordDetailVC()
-            }
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+            self.delegate?.speechRecordDetailVC()
+            
         }
     }
     @IBAction func noBtnPressed(_ sender: UIButton) {
         
-        self.dismiss(animated: true)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
         
     }
 }
