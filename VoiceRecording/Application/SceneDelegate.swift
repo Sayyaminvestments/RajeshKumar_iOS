@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 signInScreen()
             }
         } else {
-            print("Dash board")
+            print("signInScreen")
             signInScreen()
         }
     }

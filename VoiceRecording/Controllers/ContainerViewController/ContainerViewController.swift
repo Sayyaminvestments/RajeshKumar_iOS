@@ -97,8 +97,7 @@ class ContainerViewController: BaseHelper,UITableViewDataSource,UITableViewDeleg
            
             let alertVC = self.storyboard!.instantiateViewController(withIdentifier: "SpeechRecordFinishedAlertVC") as! SpeechRecordFinishedAlertVC
             alertVC.delegate = self
-            //alertVC.view.frame = CGRect(x: -15, y: -200, width: view.frame.width, height: view.frame.height)
-            alertVC.view.frame = view.bounds
+            alertVC.view.frame = CGRect(x: -20, y: -200, width: view.frame.width+35, height: view.frame.height+350)
             self.view.addSubview(alertVC.view)
             alertVC.didMove(toParent: self)
             self.addChild(alertVC)
