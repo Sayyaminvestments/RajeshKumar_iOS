@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				66F4F2BA29ED437400B69357 /* Application */,
-				66F4F2BC29ED43C300B69357 /* Congigure */,
+				66F4F2BC29ED43C300B69357 /* Configure */,
 				66F4F2B929EBDE2700B69357 /* NetworkManager */,
 				66F4F2B529EBDCFD00B69357 /* Model */,
 				66F4F2B829EBDD2300B69357 /* View */,
@@ -292,7 +292,7 @@
 			path = CustomCell;
 			sourceTree = "<group>";
 		};
-		66F4F2BC29ED43C300B69357 /* Congigure */ = {
+		66F4F2BC29ED43C300B69357 /* Configure */ = {
 			isa = PBXGroup;
 			children = (
 				66789CBE29F91C5F00E935A8 /* SiriWaveFormHelper */,
@@ -301,7 +301,7 @@
 				667A2FBD29EE4AC7006E9898 /* UserDefault.swift */,
 				668847B229F1158C0092545F /* BaseHelper.swift */,
 			);
-			path = Congigure;
+			path = Configure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

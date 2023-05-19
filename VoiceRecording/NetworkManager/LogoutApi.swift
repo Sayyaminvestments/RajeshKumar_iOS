@@ -6,12 +6,15 @@
 //
 
 import Foundation
-class LogoutManager {
-    func logoutApiCall() ->Int{
-         var error_value = 0
+import UIKit
+
+class LogoutManager: BaseHelper {
+    
+    func logoutApiCall() {
+         
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: logOut_API) else {
-            return error_value
+            return
         }
         var request = URLRequest(url: url)
         //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -46,6 +49,18 @@ class LogoutManager {
             
             if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                 debugPrint(responseJSON)
+                if let error_no = responseJSON["error_no"] as? Int {
+                    if error_no == 0 {
+                        DispatchQueue.main.async {
+                            self.showAlertWithBack(title: "", message: "Sucessfully Logout.")
+                        }
+                    } else if error_no == 11211303 {
+                        DispatchQueue.main.async {
+                            self.showalert(title: "", message: "The user is not logged in, please try again")
+                        }
+                    }
+                    
+                }
                 let decoder = JSONDecoder()
                 do {
                     let jsonData = try decoder.decode(SMLogoutModel.self, from: data)
@@ -55,7 +70,6 @@ class LogoutManager {
                             UserDefaults.SFSDefault(removeObjectForKey: "password")
                             UserDefaults.SFSDefault(removeObjectForKey: "token")
                             UserDefaults.SFSDefault(removeObjectForKey: "name")
-                            error_value = error_no
                             
                         }
                     }
@@ -66,7 +80,6 @@ class LogoutManager {
             }
         }
         task.resume()
-        return error_value
     }
     
 }

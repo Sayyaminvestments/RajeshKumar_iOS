@@ -25,23 +25,23 @@ class BaseHelper: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    private func activityIndicator(style: UIActivityIndicatorView.Style = .medium,
+    private func activityIndicator(style: UIActivityIndicatorView.Style = .large,
                                        frame: CGRect? = nil,
                                        center: CGPoint? = nil) -> UIActivityIndicatorView {
-        
+
         // 2
         let activityIndicatorView = UIActivityIndicatorView(style: style)
-        
+
         // 3
         if let frame = frame {
             activityIndicatorView.frame = frame
         }
-        
+
         // 4
-        if let center = center {
-            activityIndicatorView.center = center
-        }
-        
+//        if let center = center {
+//            activityIndicatorView.center = center
+//        }
+
         // 5
         return activityIndicatorView
     }
@@ -53,8 +53,7 @@ class BaseHelper: UIViewController {
     }
     func startLoader ()
     {
-        indicatorView = self.activityIndicator(style: .medium,
-                                               center: self.view.center)
+        indicatorView = self.activityIndicator(style: .large,frame: CGRect(x: 140, y: 200, width: 100, height: 150))
       
        self.view.addSubview(indicatorView)
         self.indicatorView.startAnimating()
@@ -68,26 +67,26 @@ class BaseHelper: UIViewController {
             print("Handle Ok logic here")
         }))
         DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
+            self.getTopMostViewController()?.present(alert, animated: true, completion: nil)
            }
     }
-//    func getTopMostViewController() -> UIViewController? {
-//        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-//
-//        while let presentedViewController = topMostViewController?.presentedViewController {
-//            topMostViewController = presentedViewController
-//        }
-//
-//        return topMostViewController
-//    }
+    func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+
+        return topMostViewController
+    }
     func showAlertWithBack (title: String,message : String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
-            self.tabBarController?.navigationController?.popViewController(animated: true)
+            self.tabBarController?.viewControllers?.removeLast()
             print("Handle Ok logic here")
         }))
-        self.present(alert, animated: true, completion: nil)
+        self.getTopMostViewController()?.present(alert, animated: true, completion: nil)
     }
 
     func isValidEmail(testStr:String) -> Bool {

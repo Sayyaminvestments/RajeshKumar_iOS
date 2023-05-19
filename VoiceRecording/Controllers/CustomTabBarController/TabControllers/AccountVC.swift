@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountVC: BaseHelper {
+class AccountVC: UIViewController {
     
     // IBOutlet
     @IBOutlet weak var nameLabel: UILabel!
@@ -51,12 +51,11 @@ class AccountVC: BaseHelper {
     }
 
     @IBAction func logOutBtnPressed(_ sender: UIButton) {
-        let error_no = objLogoutManager.logoutApiCall()
-        if error_no == 0 {
-            showAlertWithBack(title: "", message: "Sucessfully Logout")
-        } else {
-            showalert(title: "", message: "Something Missing")
-        }
+        objLogoutManager.logoutApiCall()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            self.tabBarController?.navigationController?.popViewController(animated: true)
+        })
+        
     }
 }
 

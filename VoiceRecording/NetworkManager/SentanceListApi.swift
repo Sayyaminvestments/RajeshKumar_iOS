@@ -8,7 +8,7 @@
 import Foundation
 class SentanceListManger {
     var resultModel: SMSetanceListModel?
-    func sentanceListApi(isWaiting: String, completionHandler: @escaping (SMSetanceListModel?,Error?)-> Void) {
+    func sentanceListApi(isWaiting: String,pageNo: Int, completionHandler: @escaping (SMSetanceListModel?,Error?)-> Void) {
         var parameter = Dictionary<String,Any>()
         guard let url = URL(string: sentanceList_API) else {
             return
@@ -26,7 +26,7 @@ class SentanceListManger {
             parameter["password"] = pass
             parameter["token"] = token
             parameter["page_number"] = 1
-            parameter["page_size"] = 10
+            parameter["page_size"] = pageNo
             parameter["state"] = isWaiting//"waiting"
             parameter["app_version"] = "1.1.0"
             debugPrint(parameter)
@@ -56,10 +56,6 @@ class SentanceListManger {
                         if error_no == 0 && error_message == "success" {
                             debugPrint(error_no,error_message)
                             completionHandler(jsonData.self,error)
-                            for i in list {
-                                print("category===",i.text ?? "")
-                                
-                            }
                             
                         } else {
                             
